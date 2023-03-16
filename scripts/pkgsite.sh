@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 if ! command -v pkgsite &>/dev/null; then
     export PATH="$(go env GOPATH)/bin:$PATH"
@@ -10,7 +10,7 @@ fi
 
 # In case the user hasn't set an explicit installation location, avoid polluting
 # our own project...
-NPMBIN=$(cd $HOME && npm bin)
+NPMBIN=$(cd $HOME && npm root)/.bin
 export PATH="$NPMBIN:$PATH"
 if ! command -v browser-sync &>/dev/null; then
     (cd $HOME && npm install browser-sync)

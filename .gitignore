@@ -1,3 +1,5 @@
-coverage.html
+__debug_bin
+.vscode/*.log
 coverage.out
-coverage.txt
+coverage-root.out
+coverage.html
