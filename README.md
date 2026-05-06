@@ -35,6 +35,24 @@ sekret, moresekret := Successful2R(Bar(12345))
 sekret, moresekret, nosekretanymore := Successful3R(Baz())
 ```
 
+## Asserting OK'ness
+
+#### Before
+
+```go
+sekret, ok := Get("sekret")
+Expect(ok).To(BeTrue())
+```
+
+#### After
+
+```go
+// You might want to dot-import for convenience.
+import . "github.com/thediveo/success"
+
+sekret := Allright(Get("sekret"))
+```
+
 ## Asserting Assignability
 
 #### Before
