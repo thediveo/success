@@ -15,8 +15,8 @@
 package success
 
 import (
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
+	. "github.com/onsi/ginkgo/v2" //nolint // that's fine
+	. "github.com/onsi/gomega"    //nolint // that's fine
 )
 
 // Successful takes a return value together with an error return value,
@@ -37,7 +37,7 @@ func Successful2R[R1 any, R2 any](r1 R1, r2 R2, err error) (R1, R2) {
 	return r1, r2
 }
 
-// Successful2R takes two return values together with an error return value,
+// Successful3R takes two return values together with an error return value,
 // returning only both value (without the error return value) and at the same
 // time asserting that the error return value is nil.
 func Successful3R[R1 any, R2 any, R3 any](r1 R1, r2 R2, r3 R3, err error) (R1, R2, R3) {

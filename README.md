@@ -2,7 +2,7 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/thediveo/success.svg)](https://pkg.go.dev/github.com/thediveo/success)
 ![GitHub](https://img.shields.io/github/license/thediveo/success)
-![build and test](https://github.com/TheDiveO/success/actions/workflows/buildandtest.yaml/badge.svg?branch=master)
+![build and test](https://github.com/thediveo/success/actions/workflows/buildandtest.yaml/badge.svg?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/thediveo/success)](https://goreportcard.com/report/github.com/thediveo/success)
 ![Coverage](https://img.shields.io/badge/Coverage-100.0%25-brightgreen)
 
@@ -12,6 +12,8 @@ will immediately look so much better by importing success!
 
 For devcontainer instructions, please see the [section "DevContainer"
 below](#devcontainer).
+
+## Asserting Success
 
 #### Before
 
@@ -33,6 +35,27 @@ sekret, moresekret := Successful2R(Bar(12345))
 sekret, moresekret, nosekretanymore := Successful3R(Baz())
 ```
 
+## Asserting Assignability
+
+#### Before
+
+```go
+var value any = "42"
+Expect(value).To(BeAssignableToTypeOf(s))
+s := value.(string)
+```
+
+#### After
+
+```go
+// You might want to dot-import for convenience.
+import . "github.com/thediveo/success"
+
+var value any = "42"
+s := AssignableTo[string](value)
+```
+
+
 ## DevContainer
 
 > [!CAUTION]
@@ -53,5 +76,5 @@ versions _N_ and _N_-1 (where _N_ is the current major version).
 
 ## Copyright and License
 
-`success` is Copyright 2023 Harald Albrecht, and licensed under the Apache
+`success` is Copyright 2023, 2026 Harald Albrecht, and licensed under the Apache
 License, Version 2.0.
