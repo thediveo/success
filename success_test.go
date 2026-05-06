@@ -16,16 +16,10 @@ package success
 
 import (
 	"errors"
-	"testing"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
-
-func TestSuccess(t *testing.T) {
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "success package")
-}
 
 var _ = Describe("ensuring success", func() {
 

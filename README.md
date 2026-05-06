@@ -13,6 +13,8 @@ will immediately look so much better by importing success!
 For devcontainer instructions, please see the [section "DevContainer"
 below](#devcontainer).
 
+## Asserting Success
+
 #### Before
 
 ```go
@@ -32,6 +34,27 @@ sekret := Successful(Foo(42))
 sekret, moresekret := Successful2R(Bar(12345))
 sekret, moresekret, nosekretanymore := Successful3R(Baz())
 ```
+
+## Asserting Assignability
+
+#### Before
+
+```go
+var value any = "42"
+Expect(value).To(BeAssignableToTypeOf(s))
+s := value.(string)
+```
+
+#### After
+
+```go
+// You might want to dot-import for convenience.
+import . "github.com/thediveo/success"
+
+var value any = "42"
+s := AssignableTo[string](value)
+```
+
 
 ## DevContainer
 
@@ -53,5 +76,5 @@ versions _N_ and _N_-1 (where _N_ is the current major version).
 
 ## Copyright and License
 
-`success` is Copyright 2023 Harald Albrecht, and licensed under the Apache
+`success` is Copyright 2023, 2026 Harald Albrecht, and licensed under the Apache
 License, Version 2.0.
