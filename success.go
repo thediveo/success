@@ -29,7 +29,7 @@ func Successful[R any](r R, err error) R {
 }
 
 // Successful2R takes two return values together with an error return value,
-// returning only both value (without the error return value) and at the same
+// returning only both values (without the error return value) and at the same
 // time asserting that the error return value is nil.
 func Successful2R[R1 any, R2 any](r1 R1, r2 R2, err error) (R1, R2) {
 	GinkgoHelper()
@@ -37,9 +37,9 @@ func Successful2R[R1 any, R2 any](r1 R1, r2 R2, err error) (R1, R2) {
 	return r1, r2
 }
 
-// Successful3R takes two return values together with an error return value,
-// returning only both value (without the error return value) and at the same
-// time asserting that the error return value is nil.
+// Successful3R takes three return values together with an error return value,
+// returning only the three values (without the error return value) and at the
+// same time asserting that the error return value is nil.
 func Successful3R[R1 any, R2 any, R3 any](r1 R1, r2 R2, r3 R3, err error) (R1, R2, R3) {
 	GinkgoHelper()
 	Expect(err).NotTo(HaveOccurred())
