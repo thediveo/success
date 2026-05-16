@@ -30,9 +30,28 @@ import . "github.com/thediveo/success"
 
 sekret := Successful(Foo(42))
 
-// analogous...
+// respectively: Successful2R, Successful3R
 sekret, moresekret := Successful2R(Bar(12345))
 sekret, moresekret, nosekretanymore := Successful3R(Baz())
+```
+
+## Annotating Success
+
+#### Before
+
+```go
+sekret, err := Foo(42)
+Expect(err).NotTo(HaveOccured(), "not enough foo: %d", 42)
+```
+
+#### After
+
+```go
+// You might want to dot-import for convenience.
+import . "github.com/thediveo/success/pass"
+
+sekret := Pass(Foo(42)).Bar("not enough foo: %d", 42)
+// respectively: Pass2, Pass3
 ```
 
 ## Asserting OK'ness

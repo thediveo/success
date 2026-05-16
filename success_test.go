@@ -23,7 +23,7 @@ import (
 
 var _ = Describe("ensuring success", func() {
 
-	It("bails out where there is no success", func() {
+	It("fails when there is no success", func() {
 		msgs := InterceptGomegaFailures(func() {
 			_ = Successful(func() (int, error) { return 0, errors.New("D'OH!") }())
 		})
