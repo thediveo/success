@@ -16,14 +16,14 @@
         },
         "ghcr.io/thediveo/devcontainer-features/goreportcard:1": {},
         "ghcr.io/thediveo/devcontainer-features/go-mod-upgrade:1": {},
-        "ghcr.io/thediveo/devcontainer-features/lazygit:0": {},
         "ghcr.io/thediveo/devcontainer-features/gocover:1": {
             "num-programs": "1",
             "race": true,
             "verbose": true,
             "html": true
         },
-        "ghcr.io/thediveo/devcontainer-features/pinact:0": {}
+        "ghcr.io/thediveo/devcontainer-features/pinact:0": {},
+        "ghcr.io/thediveo/devcontainer-features/lazygit:0": {}
     },
     "remoteEnv": {
         "GOPATH": "/home/vscode/go",
@@ -32,7 +32,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "stkb.rewrap",
+                "dnut.rewrap-revived",
                 "brunnerh.insert-unicode",
                 "mhutchie.git-graph",
                 "ms-vscode.makefile-tools"
