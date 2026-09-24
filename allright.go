@@ -26,3 +26,19 @@ func Allright[R any](r R, ok bool) R {
 	Expect(ok).To(BeTrue(), "this is not allright")
 	return r
 }
+
+// Allright2R takes two return values together with an “ok” boolean return
+// value, asserting that it's okay, and then returning the two return values.
+func Allright2R[R1, R2 any](r1 R1, r2 R2, ok bool) (R1, R2) {
+	GinkgoHelper()
+	Expect(ok).To(BeTrue(), "this is not allright")
+	return r1, r2
+}
+
+// Allright3R takes three return values together with an “ok” boolean return
+// value, asserting that it's okay, and then returning the three return values.
+func Allright3R[R1, R2, R3 any](r1 R1, r2 R2, r3 R3, ok bool) (R1, R2, R3) {
+	GinkgoHelper()
+	Expect(ok).To(BeTrue(), "this is not allright")
+	return r1, r2, r3
+}

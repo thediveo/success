@@ -23,15 +23,44 @@ var _ = Describe("asserting everything's allright", func() {
 
 	It("asserts it's okay", func() {
 		Expect(InterceptGomegaFailure(func() {
-			var s string = Allright(func() (string, bool) { return "", true }()) //nolint:staticcheck
-			_ = s
+			var s string = Allright(func() (string, bool) { return "ok", true }())
+			Expect(s).To(Equal("ok"))
+		})).To(Succeed())
+
+		Expect(InterceptGomegaFailure(func() {
+			var (
+				s string
+				i int
+			)
+			s, i = Allright2R(func() (string, int, bool) { return "ok", 42, true }())
+			Expect(s).To(Equal("ok"))
+			Expect(i).To(Equal(42))
+		})).To(Succeed())
+
+		Expect(InterceptGomegaFailure(func() {
+			var (
+				s string
+				i int
+				f float32
+			)
+			s, i, f = Allright3R(func() (string, int, float32, bool) { return "ok", 42, 666.6, true }())
+			Expect(s).To(Equal("ok"))
+			Expect(i).To(Equal(42))
+			Expect(f).To(Equal(float32(666.6)))
 		})).To(Succeed())
 	})
 
 	It("fails when it's not okay", func() {
 		Expect(InterceptGomegaFailure(func() {
-			var s string = Allright(func() (string, bool) { return "", false }()) //nolint:staticcheck
-			_ = s
+			_ = Allright(func() (string, bool) { return "", false }())
+		})).To(HaveOccurred())
+
+		Expect(InterceptGomegaFailure(func() {
+			_, _ = Allright2R(func() (string, int, bool) { return "", 42, false }())
+		})).To(HaveOccurred())
+
+		Expect(InterceptGomegaFailure(func() {
+			_, _, _ = Allright3R(func() (string, int, float32, bool) { return "", 42, 666.6, false }())
 		})).To(HaveOccurred())
 	})
 
