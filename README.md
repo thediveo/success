@@ -3,7 +3,6 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/thediveo/success.svg)](https://pkg.go.dev/github.com/thediveo/success)
 ![GitHub](https://img.shields.io/github/license/thediveo/success)
 ![build and test](https://github.com/thediveo/success/actions/workflows/buildandtest.yaml/badge.svg?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/thediveo/success)](https://goreportcard.com/report/github.com/thediveo/success)
 ![Coverage](https://img.shields.io/badge/Coverage-100.0%25-brightgreen)
 
 This tiny Go module improves your testing feng shui tremendiously by shimming in
@@ -113,5 +112,5 @@ versions _N_ and _N_-1 (where _N_ is the current major version).
 
 ## Copyright and License
 
-`success` is Copyright 2023, 2026 Harald Albrecht, and licensed under the Apache
+`success` is Copyright 2023–2026 Harald Albrecht, and licensed under the Apache
 License, Version 2.0.
